@@ -1,3 +1,5 @@
+# create first version of REST API for ziengs data
+
 from flask import Flask 
 from flask_restful import Resource, Api
 from sqlalchemy import create_engine
