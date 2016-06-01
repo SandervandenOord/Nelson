@@ -1,0 +1,26 @@
+sqlite3 ziengs.db
+
+
+CREATE TABLE product_pages(
+product_id INTEGER,
+product_title TEXT,
+product_category TEXT,
+brand TEXT,
+price TEXT,
+url TEXT,
+image_url TEXT,
+pagetype TEXT,
+crawl_date_time TEXT,
+description TEXT
+);
+
+CREATE TABLE product_listings(
+page_url TEXT, 
+nr_products INTEGER, 
+page_number INTEGER, 
+ordering TEXT, 
+item INTEGER, 
+product_category TEXT, 
+page_type TEXT, 
+crawled_date_time TEXT
+);
