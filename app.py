@@ -2,6 +2,7 @@
 # most important: 
 # with /product_details/<string:url_join> you can get the positions of products on their site
 # url is in the form: signatura-veterschoen_cognac_11399.html
+# example: http://localhost:5000/product_details/signatura-veterschoen_cognac_11399.html
 
 from flask import Flask 
 from flask_restful import Resource, Api
