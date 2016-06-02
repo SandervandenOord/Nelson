@@ -1,26 +1,43 @@
 sqlite3 ziengs.db
 
 
-CREATE TABLE product_pages(
+CREATE TABLE product_pages4(
 product_id INTEGER,
 product_title TEXT,
 product_category TEXT,
 brand TEXT,
 price TEXT,
 url TEXT,
+url_join TEXT,
 image_url TEXT,
 pagetype TEXT,
 crawl_date_time TEXT,
 description TEXT
 );
 
-CREATE TABLE product_listings(
+CREATE TABLE product_listings4(
 page_url TEXT, 
 nr_products INTEGER, 
-page_number INTEGER, 
+page_number INTEGER,
+position INTEGER, 
 ordering TEXT, 
-item INTEGER, 
+item INTEGER,
+url_join TEXT, 
 product_category TEXT, 
 page_type TEXT, 
 crawled_date_time TEXT
 );
+
+CREATE TABLE
+product_positions4_result
+AS
+SELECT 
+product_pages4.product_id,
+product_pages4.product_title,
+product_pages4.brand,
+product_pages4.price,
+product_pages4.url_join,
+product_listings4.position,
+product_listings4.product_category
+FROM product_pages4 LEFT JOIN product_listings4 
+USING (url_join);
