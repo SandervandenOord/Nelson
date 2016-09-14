@@ -4,7 +4,7 @@
 # url is in the form: signatura-veterschoen_cognac_11399.html
 # example: http://localhost:5000/product_details/signatura-veterschoen_cognac_11399.html
 
-from flask import Flask 
+from flask import Flask, jsonify 
 from flask_restful import Resource, Api
 from sqlalchemy import create_engine
 
@@ -17,7 +17,8 @@ class Categories(Resource):
     def get(self):
         conn = e.connect()
         query = conn.execute("select distinct product_category from product_pages4")
-        return {'categories': [i[0] for i in query.cursor.fetchall()]}
+        result = {'categories': [i[0] for i in query.cursor.fetchall()]}
+        return jsonify(**result) #hier is jsonify toegevoegd om goede echte json-header etc. mee te geven.
 
 class Category_Details(Resource):
     def get(self, product_category):
